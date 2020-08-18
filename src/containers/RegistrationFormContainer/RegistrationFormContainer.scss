@@ -1,0 +1,38 @@
+.registration-form {
+  font-family: 'Open Sans Condensed', sans-serif;
+  width: 100%;
+
+  &__link {
+    color: #86c232;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__submit {
+    align-self: center;
+    background-color: #61892f;
+    border: 0;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 10px;
+    padding: 10px 35px;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+}

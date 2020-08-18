@@ -1,0 +1,38 @@
+.ticket {
+  align-items: center;
+  border-top: 1px solid #29282f;
+  color: #fff;
+  display: flex;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 15px;
+  padding: 10px 20px;
+
+  &__title {
+    flex: 1;
+  }
+
+  &__description {
+    display: none;
+    opacity: 0.65;
+  }
+
+  &__price {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .ticket {
+    font-size: 20px;
+
+    &__title {
+      flex: 2;
+    }
+
+    &__description {
+      display: block;
+      flex: 4;
+    }
+  }
+}

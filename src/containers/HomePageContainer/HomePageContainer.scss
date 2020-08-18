@@ -1,0 +1,17 @@
+.home-page-layout {
+  background-color: #29282f;
+  padding-bottom: 125px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1410px;
+    width: 100%;
+  }
+
+  &__header-wrapper {
+    margin-top: 35px;
+  }
+}

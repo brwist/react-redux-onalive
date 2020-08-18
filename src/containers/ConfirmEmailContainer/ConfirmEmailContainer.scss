@@ -1,0 +1,29 @@
+.confirm-email {
+  margin: 0 auto;
+  max-width: 453px;
+  text-align: center;
+
+  &__h1 {
+    font-size: 21px;
+    font-weight: 300;
+    margin: 20px auto;
+  }
+
+  &__text {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.38;
+    opacity: 0.65;
+  }
+
+  &__p {
+    padding: 10px 0;
+  }
+
+  &__link {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}

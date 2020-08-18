@@ -1,0 +1,65 @@
+.tickets-picker {
+  &__summary {
+    background-color: #090a0b;
+    border-top: 1px solid #29282f;
+    color: #fff;
+    display: flex;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 25px 20px;
+  }
+
+  &__cart {
+    flex: 1;
+  }
+
+  &__cartico {
+    margin: 0 10px -2px 0;
+  }
+
+  &__total {
+    flex: 1;
+  }
+
+  &__goods {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__price {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .tickets-picker {
+    &__summary {
+      font-size: 20px;
+    }
+
+    &__cart {
+      flex: 2;
+    }
+
+    &__total {
+      flex: 4;
+      text-align: right;
+    }
+
+    &__button {
+      margin: 20px 0 50px;
+    }
+  }
+}

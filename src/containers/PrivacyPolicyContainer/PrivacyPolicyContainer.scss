@@ -1,0 +1,52 @@
+.privacy-policy {
+  background-color: #29282f;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  &__container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1410px;
+    padding: 155px 15px;
+    width: 100%;
+  }
+
+  &__header {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__block-title {
+    font-size: 25px;
+    margin: 20px 0 10px;
+  }
+
+  &__list {
+    list-style-type: circle;
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+    opacity: 0.65;
+  }
+
+  &__link {
+    color: #86c232;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

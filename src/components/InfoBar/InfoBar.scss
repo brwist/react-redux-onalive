@@ -1,0 +1,30 @@
+.info-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 10px 10px 10px 0;
+  width: 100%;
+
+  &:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  &__title {
+    flex: 1;
+  }
+
+  &__description {
+    flex: 4;
+  }
+
+  &__title,
+  &__description {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 16px;
+    font-weight: 300;
+
+    &--green {
+      color: #86c232;
+    }
+  }
+}

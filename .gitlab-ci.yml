@@ -1,0 +1,162 @@
+image: node:12.14.0
+
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+# install
+yarn-install:
+  stage: install
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+# test
+test:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - yarn ci-test
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+yarn-audit:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - yarn audit
+  allow_failure: true
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+yarn-outdated:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - yarn outdated
+  allow_failure: true
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+eslint:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - yarn eslint
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+stylelint:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - yarn style
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+flow:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - yarn flow
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+
+# build
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - REACT_APP_SERVER_ENDPOINT=$API_URL_STAGING yarn build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 hour
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+  except:
+    - master
+
+build-production:
+  stage: build
+  tags:
+    - docker
+  script:
+    - yarn --frozen-lockfile
+    - REACT_APP_SERVER_ENDPOINT=$API_URL_PROD yarn build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 hour
+  cache:
+    key: yarn-cache
+    paths:
+      - node_modules/
+  only:
+    - master
+
+# deploy
+deploy-staging:
+  stage: deploy
+  tags:
+    - docker
+  image: python:latest
+  script:
+    - pip install awscli --ignore-installed six
+    - aws s3 sync ./build s3://$STAGING_S3_BUCKET_NAME/ --exclude "*.map" --exclude service-worker.js --exclude manifest.json --exclude index.html --cache-control max-age=86400,public
+    - aws s3 cp ./build/service-worker.js s3://$STAGING_S3_BUCKET_NAME/ --exclude "*.map" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws s3 cp ./build/index.html s3://$STAGING_S3_BUCKET_NAME/ --exclude "*.map" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws s3 cp ./build/manifest.json s3://$STAGING_S3_BUCKET_NAME/ --exclude "*.map" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws cloudfront create-invalidation --distribution-id $STAGING_CLOUDFRONT_ID --paths "/*"
+  only:
+    - staging
+
+deploy-production:
+  stage: deploy
+  tags:
+    - docker
+  image: python:latest
+  script:
+    - pip install awscli --ignore-installed six
+    - aws s3 sync ./build s3://$PROD_S3_BUCKET_NAME/ --exclude "*.map" --exclude service-worker.js --exclude manifest.json --exclude index.html --cache-control max-age=86400,public
+    - aws s3 cp ./build/service-worker.js s3://$PROD_S3_BUCKET_NAME/ --exclude "*.map" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws s3 cp ./build/index.html s3://$PROD_S3_BUCKET_NAME/ --exclude "*.map" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws s3 cp ./build/manifest.json s3://$PROD_S3_BUCKET_NAME/ --exclude "*.map" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws cloudfront create-invalidation --distribution-id $PROD_CLOUDFRONT_ID --paths "/*"
+  only:
+    - master

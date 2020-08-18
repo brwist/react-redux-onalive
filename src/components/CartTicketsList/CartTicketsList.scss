@@ -1,0 +1,143 @@
+.cart-tickets-list {
+  &__container {
+    background-color: #090a0b;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+
+  &__header {
+    background-color: #141317;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 25px 20px;
+  }
+
+  &__ticket-type {
+    flex: 1;
+  }
+
+  &__quantity,
+  &__price {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__event {
+    flex: 1;
+  }
+
+  &__amount {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__summary {
+    background-color: #141317;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 25px 20px;
+  }
+
+  &__cart {
+    box-sizing: border-box;
+    padding-right: 5px;
+    text-align: center;
+    width: 20px;
+  }
+
+  &__cartico {
+    margin: 0 0 0 -10px;
+  }
+
+  &__total {
+    flex: 2;
+  }
+
+  &__goods {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__price {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  &__checkbox {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+
+  &__link {
+    color: #86c232;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__empty {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .cart-tickets-list {
+    &__header {
+      font-size: 20px;
+    }
+
+    &__ticket-type {
+      flex: 2;
+    }
+
+    &__event {
+      display: block;
+      flex: 4;
+    }
+
+    &__summary {
+      font-size: 20px;
+    }
+
+    &__cart {
+      padding-right: 15px;
+      width: 50px;
+    }
+
+    &__cartico {
+      margin: 0;
+    }
+
+    &__total {
+      flex: 6;
+    }
+  }
+}

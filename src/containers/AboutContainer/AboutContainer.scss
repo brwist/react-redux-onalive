@@ -1,0 +1,15 @@
+.about-page {
+  background-color: #29282f;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  &__container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1410px;
+    padding: 155px 15px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,165 @@
+.loader {
+  align-self: center;
+
+  &--large {
+    height: 250px;
+    margin: 50px;
+    width: 250px;
+  }
+
+  &--medium {
+    height: 150px;
+    margin: 30px;
+    width: 150px;
+  }
+
+  &--small {
+    height: 20px;
+    margin-left: 20px;
+    width: 50px;
+  }
+
+  &__outer {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  &__spin {
+    border: 4px solid #fff;
+    border-radius: 50%;
+    opacity: 1;
+    position: absolute;
+
+    &--second {
+      animation-delay: -0.5s;
+    }
+
+    &--large {
+      animation: loader__spin--large 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+
+    &--medium {
+      animation: loader__spin--medium 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+
+    &--small {
+      animation: loader__spin--small 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+  }
+
+  &__inline {
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    background: #fff;
+    border-radius: 50%;
+    height: 10px;
+    position: absolute;
+    top: 5px;
+    width: 10px;
+
+    &--first {
+      animation: loader__inline--1 0.6s infinite;
+      left: 8px;
+    }
+
+    &--second {
+      animation: loader__inline--2 0.6s infinite;
+      left: 8px;
+    }
+
+    &--third {
+      animation: loader__inline--2 0.6s infinite;
+      left: 32px;
+    }
+
+    &--fourth {
+      animation: loader__inline--3 0.6s infinite;
+      left: 56px;
+    }
+  }
+}
+
+@keyframes loader__spin--large {
+  0% {
+    height: 0;
+    left: 121px;
+    opacity: 1;
+    top: 121px;
+    width: 0;
+  }
+
+  100% {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@keyframes loader__spin--medium {
+  0% {
+    height: 0;
+    left: 71px;
+    opacity: 1;
+    top: 71px;
+    width: 0;
+  }
+
+  100% {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@keyframes loader__spin--small {
+  0% {
+    height: 0;
+    left: 21px;
+    opacity: 1;
+    top: 21px;
+    width: 0;
+  }
+
+  100% {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@keyframes loader__inline--1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loader__inline--2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+@keyframes loader__inline--3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}

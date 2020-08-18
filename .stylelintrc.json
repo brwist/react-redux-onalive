@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-prettier",
+    "stylelint-config-sass-guidelines"
+  ],
+  "plugins": ["stylelint-selector-bem-pattern", "stylelint-scss"],
+  "rules": {
+    "indentation": 2,
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "componentName": "[A-Z]+",
+      "implicitComponents": false
+    },
+    "selector-no-qualifying-type": true,
+    "selector-max-type": 1,
+    "selector-class-pattern": null,
+    "color-named": "never",
+    "selector-max-class": 1,
+    "max-nesting-depth": 3,
+    "unit-whitelist": ["px", "%", "s"],
+    "property-blacklist": ["float"],
+    "media-feature-name-value-whitelist": {
+      "min-width": ["769px"]
+    },
+    "media-feature-name-whitelist": ["min-width"]
+  }
+}

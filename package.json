@@ -1,0 +1,86 @@
+{
+  "name": "onalive.no",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "@bambora/checkout-sdk-web": "3.0.6",
+    "axios": "0.19.2",
+    "date-fns": "2.15.0",
+    "eslint-config-stylelint": "12.0.0",
+    "i18next": "19.6.3",
+    "i18next-browser-languagedetector": "5.0.0",
+    "prop-types": "15.7.2",
+    "query-string": "6.13.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-form": "4.0.1",
+    "react-gtm-module": "2.0.10",
+    "react-helmet": "6.1.0",
+    "react-i18next": "11.7.0",
+    "react-icons": "3.10.0",
+    "react-redux": "7.2.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.4.1",
+    "react-toastify": "6.0.8",
+    "redux": "4.0.5",
+    "redux-form": "8.3.6",
+    "redux-thunk": "2.3.0"
+  },
+  "devDependencies": {
+    "@babel/helper-call-delegate": "7.10.4",
+    "@babel/runtime": "7.10.5",
+    "@testing-library/jest-dom": "5.11.1",
+    "@testing-library/react": "10.4.7",
+    "@testing-library/user-event": "12.0.14",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-flowtype": "5.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "23.18.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "flow-bin": "0.130.0",
+    "js-levenshtein": "1.1.6",
+    "node-sass": "4.14.1",
+    "prettier": "2.0.5",
+    "source-map-explorer": "2.4.2",
+    "stylelint": "13.6.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-sass-guidelines": "7.0.0",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-selector-bem-pattern": "2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "flow": "flow",
+    "eject": "react-scripts eject",
+    "ci-test": "CI=true react-scripts test",
+    "style": "stylelint **/*.scss",
+    "analyze": "source-map-explorer build/static/js/2.*.* && source-map-explorer build/static/js/main.*",
+    "eslint": "eslint --ext .jsx,.js src/",
+    "eslint-hooks": "eslint --no-eslintrc --parser \"babel-eslint\" --plugin \"prettier, import, jsx-a11y, jest, react, flowtype, react-hooks\" --rule \"{\"react-hooks/exhaustive-deps\": 2}\" --ext .js src/"
+  },
+  "resolutions": {
+    "@babel/preset-env": "^7.8.7"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

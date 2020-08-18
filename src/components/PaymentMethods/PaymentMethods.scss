@@ -1,0 +1,9 @@
+.payment-methods {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  &__method {
+    padding: 10px;
+  }
+}
